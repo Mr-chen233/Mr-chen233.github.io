@@ -16,24 +16,25 @@
   <meta name="author" content="Mr-chen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="我的第一个博客好吧，严格意义上并不是，之前在 CSDN 那已经发过几篇小记录了。 这篇文章主要用于记录一下，决定开始写些技术博客。虽然大多数估计只是一些八股之类的东西。蛮记录着吧。挺后悔之前学习的时候都没怎么记录了。从现在开始吧。  栽一棵树最好的时间是十年前，其次是现在。  顺便测试一下图片上传功能，整了一个晚上呢。">
+    <meta name="description" content="双指针一、概况 类型：快慢指针（相同方向循环），对撞指针（相反方向循环）、滑动窗口 用途：提高效率，通常能将O（n^2）的时间复杂度降为O（n） 可以应用的数据结构：数组、链表、字符串 应用场景： 要用到遍历、循环、双层for循环时，立马想到双指针法 普通双指针：反转链表、链表中的虚拟头结点法（这里归类可能不恰当） 快慢指针：删除重复元素或倒数第n个节点、判断链表是否有环、N数之和、 对撞指针：二">
 <meta property="og:type" content="article">
-<meta property="og:title" content="myFirstBlog">
-<meta property="og:url" content="https://mr-chen233.github.io/2023/02/28/myFirstBlog/index.html">
+<meta property="og:title" content="双指针">
+<meta property="og:url" content="https://mr-chen233.github.io/2023/03/06/%E5%8F%8C%E6%8C%87%E9%92%88/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="我的第一个博客好吧，严格意义上并不是，之前在 CSDN 那已经发过几篇小记录了。 这篇文章主要用于记录一下，决定开始写些技术博客。虽然大多数估计只是一些八股之类的东西。蛮记录着吧。挺后悔之前学习的时候都没怎么记录了。从现在开始吧。  栽一棵树最好的时间是十年前，其次是现在。  顺便测试一下图片上传功能，整了一个晚上呢。">
+<meta property="og:description" content="双指针一、概况 类型：快慢指针（相同方向循环），对撞指针（相反方向循环）、滑动窗口 用途：提高效率，通常能将O（n^2）的时间复杂度降为O（n） 可以应用的数据结构：数组、链表、字符串 应用场景： 要用到遍历、循环、双层for循环时，立马想到双指针法 普通双指针：反转链表、链表中的虚拟头结点法（这里归类可能不恰当） 快慢指针：删除重复元素或倒数第n个节点、判断链表是否有环、N数之和、 对撞指针：二">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mr-chen233.github.io/2023/02/28/myFirstBlog/image-20230228223507268.png">
-<meta property="article:published_time" content="2023-02-28T14:29:49.000Z">
-<meta property="article:modified_time" content="2023-03-01T03:31:09.927Z">
+<meta property="og:image" content="https://mr-chen233.github.io/2023/03/06/%E5%8F%8C%E6%8C%87%E9%92%88/image-20230306135958872.png">
+<meta property="article:published_time" content="2023-03-06T05:15:47.000Z">
+<meta property="article:modified_time" content="2023-03-06T06:00:12.652Z">
 <meta property="article:author" content="Mr-chen">
-<meta property="article:tag" content="hello">
+<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="双指针">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mr-chen233.github.io/2023/02/28/myFirstBlog/image-20230228223507268.png">
+<meta name="twitter:image" content="https://mr-chen233.github.io/2023/03/06/%E5%8F%8C%E6%8C%87%E9%92%88/image-20230306135958872.png">
   
   
   
-  <title>myFirstBlog - MyBlog</title>
+  <title>双指针 - MyBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="myFirstBlog"></span>
+            <span id="subtitle" data-typed-text="双指针"></span>
           
         </div>
 
@@ -210,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-02-28 22:29" pubdate>
-          2023年2月28日 晚上
+        <time datetime="2023-03-06 13:15" pubdate>
+          2023年3月6日 下午
         </time>
       </span>
     
@@ -222,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          153 字
+          435 字
         
       </span>
     
@@ -233,7 +234,7 @@
         
         
         
-          2 分钟
+          4 分钟
         
       </span>
     
@@ -271,12 +272,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">myFirstBlog</h1>
+            <h1 style="display: none">双指针</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年3月1日 中午
+                    本文最后更新于：2023年3月6日 下午
                   
                 
               </p>
@@ -284,13 +285,36 @@
             
               <div class="markdown-body">
                 
-                <h1 id="我的第一个博客"><a href="#我的第一个博客" class="headerlink" title="我的第一个博客"></a>我的第一个博客</h1><p>好吧，严格意义上并不是，之前在 CSDN 那已经发过几篇小记录了。</p>
-<p>这篇文章主要用于记录一下，决定开始写些技术博客。虽然大多数估计只是一些八股之类的东西。蛮记录着吧。挺后悔之前学习的时候都没怎么记录了。从现在开始吧。</p>
-<blockquote>
-<p>栽一棵树最好的时间是十年前，其次是现在。</p>
-</blockquote>
-<p>顺便测试一下图片上传功能，整了一个晚上呢。</p>
-<img src="/2023/02/28/myFirstBlog/image-20230228223507268.png" srcset="/img/loading.gif" lazyload class="" title="image-20230228223507268">
+                <h1 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h1><h2 id="一、概况"><a href="#一、概况" class="headerlink" title="一、概况"></a>一、概况</h2><ol>
+<li>类型：快慢指针（相同方向循环），对撞指针（相反方向循环）、滑动窗口</li>
+<li>用途：提高效率，通常能将O（n^2）的时间复杂度降为O（n）</li>
+<li>可以应用的数据结构：<strong>数组、链表、字符串</strong></li>
+<li>应用场景：<ul>
+<li>要用到遍历、循环、双层for循环时，立马想到双指针法</li>
+<li>普通双指针：反转链表、链表中的虚拟头结点法（这里归类可能不恰当）</li>
+<li>快慢指针：删除重复元素或倒数第n个节点、判断链表是否有环、N数之和、</li>
+<li>对撞指针：二分查找、翻转字符串等</li>
+<li>滑动窗口：在数组或者链表某个连续的区间上的操作，比如求最长&#x2F;最短子字符串、长度最小子数组</li>
+</ul>
+</li>
+</ol>
+<h2 id="二、相关题目"><a href="#二、相关题目" class="headerlink" title="二、相关题目"></a>二、相关题目</h2><h3 id="（一）、对撞指针"><a href="#（一）、对撞指针" class="headerlink" title="（一）、对撞指针"></a>（一）、对撞指针</h3><ol>
+<li><h4 id="剑指-Offer-57-和为s的两个数字"><a href="#剑指-Offer-57-和为s的两个数字" class="headerlink" title="剑指 Offer 57. 和为s的两个数字"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/he-wei-sde-liang-ge-shu-zi-lcof/">剑指 Offer 57. 和为s的两个数字</a></h4><ul>
+<li><p>题目要求：<img src="/2023/03/06/%E5%8F%8C%E6%8C%87%E9%92%88/image-20230306135958872.png" srcset="/img/loading.gif" lazyload class="" title="image-20230306135958872"></p>
+</li>
+<li><p>思路：跟两数之和差不多，区别在于本题数组递增，所以可以考虑双指针</p>
+</li>
+<li><p>解法：</p>
+<ul>
+<li><p><strong>哈希表</strong>：遍历一次，第一次遍历时将数<code>x</code>存入，并判断<code>target - x</code>是否已在表中</p>
+</li>
+<li><p><strong>双指针</strong>：指针<code>i</code>、<code>j</code>分别置于首尾，若<code>nums[i] + nums[j] - target</code> 则<code>i++</code>，若<code>nums[i]+nums[j]&gt;target</code>则<code>j--</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
 
                 
               </div>
@@ -299,11 +323,41 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/leetcode/" class="category-chain-item">leetcode</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/leetcode/Algorithms/" class="category-chain-item">Algorithms</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/hello/">#hello</a>
+        <a href="/tags/leetcode/">#leetcode</a>
+      
+        <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">#双指针</a>
       
     </div>
   
@@ -315,8 +369,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>myFirstBlog</div>
-      <div>https://mr-chen233.github.io/2023/02/28/myFirstBlog/</div>
+      <div>双指针</div>
+      <div>https://mr-chen233.github.io/2023/03/06/双指针/</div>
     </div>
     <div class="license-meta">
       
@@ -328,13 +382,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年2月28日</div>
+          <div>2023年3月6日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年3月1日</div>
+          <div>2023年3月6日</div>
         </div>
       
       
@@ -365,18 +419,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/01/hot100-406-%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/" title="hot100-406-身高重建队列">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hot100-406-身高重建队列</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/23/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2023/03/01/hot100-406-%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97/" title="hot100-406-身高重建队列">
+                        <span class="hidden-mobile">hot100-406-身高重建队列</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
