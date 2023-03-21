@@ -16,22 +16,24 @@
   <meta name="author" content="Mr-chen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+    <meta name="description" content="文件描述符Linux 中一切都可以看作文件，包括普通文件、链接文件、Socket 以及设备驱动等，对其进行相关操作时，都可能会创建对应的文件描述符。文件描述符（file descriptor）是内核为了高效管理已被打开的文件所创建的索引，用于指代被打开的文件，对文件所有 I&#x2F;O 操作相关的系统调用都需要通过文件描述符。(在操作这些所谓的文件的时候，我们每操作一次就找一次名字，这会耗费大量">
 <meta property="og:type" content="article">
-<meta property="og:title" content="diary-2023-03-19">
-<meta property="og:url" content="https://mr-chen233.github.io/2023/03/20/diary-2023-03-19/index.html">
+<meta property="og:title" content="文件描述符">
+<meta property="og:url" content="https://mr-chen233.github.io/2023/03/21/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:description" content="文件描述符Linux 中一切都可以看作文件，包括普通文件、链接文件、Socket 以及设备驱动等，对其进行相关操作时，都可能会创建对应的文件描述符。文件描述符（file descriptor）是内核为了高效管理已被打开的文件所创建的索引，用于指代被打开的文件，对文件所有 I&#x2F;O 操作相关的系统调用都需要通过文件描述符。(在操作这些所谓的文件的时候，我们每操作一次就找一次名字，这会耗费大量">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-19T16:16:46.000Z">
-<meta property="article:modified_time" content="2023-03-19T16:16:46.000Z">
+<meta property="og:image" content="https://mr-chen233.github.io/2023/03/21/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/image-20230321193335545.png">
+<meta property="article:published_time" content="2023-03-21T11:24:29.000Z">
+<meta property="article:modified_time" content="2023-03-21T11:24:29.000Z">
 <meta property="article:author" content="Mr-chen">
-<meta property="article:tag" content="diary">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mr-chen233.github.io/2023/03/21/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/image-20230321193335545.png">
   
   
   
-  <title>diary-2023-03-19 - MyBlog</title>
+  <title>文件描述符 - MyBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="diary-2023-03-19"></span>
+            <span id="subtitle" data-typed-text="文件描述符"></span>
           
         </div>
 
@@ -208,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-20 00:16" pubdate>
-          2023年3月20日 凌晨
+        <time datetime="2023-03-21 19:24" pubdate>
+          2023年3月21日 晚上
         </time>
       </span>
     
@@ -220,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k 字
+          842 字
         
       </span>
     
@@ -231,7 +233,7 @@
         
         
         
-          23 分钟
+          8 分钟
         
       </span>
     
@@ -269,25 +271,27 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">diary-2023-03-19</h1>
+            <h1 style="display: none">文件描述符</h1>
             
             
-              
-              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="f4f10e5327542bd934e9701e75cc3715a576dcabf3dcefec4fb5a84d497bb456">05f2105eacbaefe74fd1be82a1de324e7ac13c2ecfca3c03be059b6bf398fa861474631262710b2c43b4d2188c1b34f2e4884adf00453298f92ee2996ec8f7ed93c48a24314f92ad30229561869e76e4748e986b80ebd2fd9b1d1f8651fc7e3c262599714c0668fdf84f15def417b84b1ece9d42b1491dd370e1b7ad130452f62f2f62d2c59a9c5c8a738089c8d7467788bc36036f8d371dcc6932811163dfff958ed8ff63e831215533ed2236c30cc467350adf15ae06eecebd9f269749ffc33d232c315be0243a6b58aa148def1d308aff8196a19f0373ee2c00ee5949cc34336b80746dff7ef87149f691245b1d5a204f93693fbae55f2d65e7b50ad3138eddfb2390ada1ef4ceb34b7313313ec7e296df1306c784af991899b43524015e09a34e235ca3b910a1863c76b13c0365fcb2982a1f26f17babab7266ae29c95863730b1a5aba830bb4e1c24459a58a289da6f0d6e1c966e3bcd0fc5517a1edaaac37859251bd41b35172ad9af360216e6ca7c5a42bda5bf775cc5f233f77a9a764411cc08c3f45858396702a05a2320721c0f00335bf4e15c042eb376506f0224a0decea41ba49ab55c0b18f57e7855840b1c92a9d9a7451adabbafb9e5c1ec453c25df25551f8a21f3f92a8dafd8f2f8434b5fdc7853b4b8e6e6dd3026eae90f7d5f236e792d851fb940dba7a9e07b7dc5625ed3467abe98af7c18da45c10741b804bc70028032973b4536632c3baadb34e3ac985a1aa31469289f67ede6edbde85918c5ad36b636deac6bcbb6b476d9fc27cc2d88b19b974f32e4346a6187ae3ce2a0ef9db5b72111442438b285d5ec7997ffd0e5eed66f1c33f3d2dcc330e86017c4e46eea98c7fc8ef66420d2f113eac01226b64117ff19877bb56f31e512c9c6d7413aead2365aa8cadbf9b9986a1b24ad4d054d42bb5f23e3e79f7d8c5c877fb7e526529b2cd274921f9efe9eec7a9df8c99a0d0f8f16c6d3632a013ecaab1acdc8b7e53ec0742ee49b01387ab23a21b1a7f39d33b426e4ab22cbd2b0f1f272d846b85748a630fb27f18c65fefae075b33373da7dc8f05084b4471c1b5bf46c65c5778b305334019a4ee86d92655b732e1188e64fcd7effcb2bb6c7209b576b4784298cafd6e165224a9e879e3cb83793aa79c4e30e5dfe5f1c7f4506a47b6f5a7a9cad76f93e85c2f401b42c8024c620584402ce661f46911aa8c653b3b28ffa3af0fd2c20c807e9c5cb705abe8a7e0872a0b85c26b8b240579b3f348761813ec47985d2ed96aa5993fdf481620e7e72f29ce3c2b9dd70c75b2da735e7c2d490c60255d9b807646996b0e7fe45d5c931c04199884a1bb8ab7411c2f427f393e047b8aa18c27db83fa8f5d831f91d0b8e63da7a75fa403bc6bfb4cb268aaaeeff65b247064f2a3906120090070645c34e84a5e2c79b00b0c8744a0d5e192160515bb623590e49f778f32d2872eb0f62838e2b06cec93d7f775ca42057daa016e5cbbafdc7915064ea731c2ae80b2ccb6f361cf45893e85ec73c485b4f033ff8dbbc229eacd45f767d5d830ca497616256f3344645269cb1ee5462c060cd0cd8149c64f105e593fb7e2c4306c5cf9c11a07cf2739a81f71d00d9351c770d2e4a88ebfc0066ca43aa54f2e73090b701478e3532e73d2ae14e36971aae22945b04d02667efa6966551d53dba5f775f5e4cef8b306ad8d4ea3e9cbc101695caa55d6d43662b4989f97439c7ae390820db976e0c15a8fbc02858158558629ba91be3b55e4a3277c1cb6f26c43efb933c65aa8b53f60cd206e9d7efbe1ebc675df5fb658fbd273e5ba2f4dd50c6794a1810fb7165ad566a45dc3c73d055cbe08cddb115356f32c2b8d68445a0d910b1fb</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
-              
+              <div class="markdown-body">
+                
+                <h1 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h1><p>Linux 中一切都可以看作文件，包括普通文件、链接文件、Socket 以及设备驱动等，对其进行相关操作时，都可能会创建对应的文件描述符。文件描述符（file descriptor）是内核为了高效管理已被打开的文件所创建的索引，用于指代被打开的文件，对文件所有 I&#x2F;O 操作相关的系统调用都需要通过文件描述符。(在操作这些所谓的文件的时候，我们每操作一次就找一次名字，这会耗费大量的时间和效率。所以Linux中规定每一个文件对应一个索引，这样要操作文件的时候，我们直接找到索引就可以对其进行操作了。)</p>
+<p>同时还规定系统刚刚启动的时候，0是标准输入，1是标准输出，2是标准错误。这意味着如果此时去打开一个新的文件，它的文件描述符会是3，再打开一个文件文件描述符就是4…..</p>
+<p>文件描述符与文件的关系</p>
+<img src="/2023/03/21/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/image-20230321193335545.png" srcset="/img/loading.gif" lazyload class="" title="image-20230321193335545">
 
-              
+<ul>
+<li><strong>进程级别的文件描述符表</strong>：内核为每个进程维护一个文件描述符表，该表记录了文件描述符的相关信息，包括文件描述符、指向打开文件表中记录的指针。</li>
+<li><strong>系统级别的打开文件表</strong>：内核对所有打开文件维护的一个进程共享的打开文件描述表，表中存储了处于打开状态文件的相关信息，包括文件类型、访问权限、文件操作函数(file_operations)等。</li>
+<li><strong>系统级别的 i-node 表</strong>：i-node 结构体记录了文件相关的信息，包括文件长度，文件所在设备，文件物理位置，创建、修改和更新时间等，<code>ls -i</code> 命令可以查看文件 i-node 节点。</li>
+</ul>
+<blockquote>
+<p>文件描述符本质上对应了内核中的一个表单数据。内核维护了每个运行进程的状态，内核会为每一个运行进程保存一个表单，表单的key是文件描述符。这个表单让内核知道，每个文件描述符对应的实际内容是什么。这里比较关键的点是，每个进程都有自己独立的文件描述符空间，所以如果运行了两个不同的程序，对应两个不同的进程，如果它们都打开一个文件，它们或许可以得到相同数字的文件描述符，但是因为内核为每个进程都维护了一个独立的文件描述符空间，这里相同数字的文件描述符可能会对应到不同的文件。——MIT 6.s081</p>
+</blockquote>
+
+                
+              </div>
             
             <hr/>
             <div>
@@ -303,8 +307,15 @@
     
       <span class="category-chain">
         
-  <a href="/categories/diary/" class="category-chain-item">diary</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="category-chain-item">操作系统</a>
+  
+  
+
   
 
       </span>
@@ -318,7 +329,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/diary/">#diary</a>
+        <a href="/tags/Linux/">#Linux</a>
       
     </div>
   
@@ -330,8 +341,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>diary-2023-03-19</div>
-      <div>https://mr-chen233.github.io/2023/03/20/diary-2023-03-19/</div>
+      <div>文件描述符</div>
+      <div>https://mr-chen233.github.io/2023/03/21/文件描述符/</div>
     </div>
     <div class="license-meta">
       
@@ -343,7 +354,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年3月20日</div>
+          <div>2023年3月21日</div>
         </div>
       
       
@@ -375,18 +386,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/21/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/" title="文件描述符">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">文件描述符</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/18/webpeack%E5%AD%A6%E4%B9%A0/" title="webpeack学习">
-                        <span class="hidden-mobile">webpeack学习</span>
+                      <a href="/2023/03/20/diary-2023-03-19/" title="diary-2023-03-19">
+                        <span class="hidden-mobile">diary-2023-03-19</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -542,23 +547,6 @@
   
 
 
-
-
-  
-  <script defer>
-    if (document.getElementById('hbePass')) {
-      Fluid.utils.waitElementLoaded('hbe-prefix', function() {
-        var hbePrefix = document.querySelector('hbe-prefix');
-        hbePrefix.parentElement.classList.add('markdown-body');
-        Fluid.utils.retry(function() {
-          if (Fluid.boot && Fluid.boot.refresh) {
-            Fluid.boot.refresh();
-            return true;
-          }
-        }, 100, 10);
-      })
-    }
-  </script>
 
 
   
