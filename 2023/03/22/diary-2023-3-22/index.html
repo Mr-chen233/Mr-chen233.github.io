@@ -16,24 +16,22 @@
   <meta name="author" content="Mr-chen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="文件描述符Linux 中一切都可以看作文件，包括普通文件、链接文件、Socket 以及设备驱动等，对其进行相关操作时，都可能会创建对应的文件描述符。文件描述符（file descriptor）是内核为了高效管理已被打开的文件所创建的索引，用于指代被打开的文件，对文件所有 I&#x2F;O 操作相关的系统调用都需要通过文件描述符。(在操作这些所谓的文件的时候，我们每操作一次就找一次名字，这会耗费大量">
+    <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文件描述符">
-<meta property="og:url" content="https://mr-chen233.github.io/2023/03/21/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/index.html">
+<meta property="og:title" content="diary-2023-3-22">
+<meta property="og:url" content="https://mr-chen233.github.io/2023/03/22/diary-2023-3-22/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="文件描述符Linux 中一切都可以看作文件，包括普通文件、链接文件、Socket 以及设备驱动等，对其进行相关操作时，都可能会创建对应的文件描述符。文件描述符（file descriptor）是内核为了高效管理已被打开的文件所创建的索引，用于指代被打开的文件，对文件所有 I&#x2F;O 操作相关的系统调用都需要通过文件描述符。(在操作这些所谓的文件的时候，我们每操作一次就找一次名字，这会耗费大量">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mr-chen233.github.io/2023/03/21/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/image-20230321193335545.png">
-<meta property="article:published_time" content="2023-03-21T11:24:29.000Z">
-<meta property="article:modified_time" content="2023-03-21T11:24:29.000Z">
+<meta property="article:published_time" content="2023-03-22T15:29:06.000Z">
+<meta property="article:modified_time" content="2023-03-22T15:29:06.000Z">
 <meta property="article:author" content="Mr-chen">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="diary">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mr-chen233.github.io/2023/03/21/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/image-20230321193335545.png">
   
   
   
-  <title>文件描述符 - MyBlog</title>
+  <title>diary-2023-3-22 - MyBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="文件描述符"></span>
+            <span id="subtitle" data-typed-text="diary-2023-3-22"></span>
           
         </div>
 
@@ -210,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-21 19:24" pubdate>
-          2023年3月21日 晚上
+        <time datetime="2023-03-22 23:29" pubdate>
+          2023年3月22日 晚上
         </time>
       </span>
     
@@ -222,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          842 字
+          5.7k 字
         
       </span>
     
@@ -233,7 +231,7 @@
         
         
         
-          8 分钟
+          48 分钟
         
       </span>
     
@@ -271,27 +269,25 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">文件描述符</h1>
+            <h1 style="display: none">diary-2023-3-22</h1>
             
             
-              <div class="markdown-body">
-                
-                <h1 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h1><p>Linux 中一切都可以看作文件，包括普通文件、链接文件、Socket 以及设备驱动等，对其进行相关操作时，都可能会创建对应的文件描述符。文件描述符（file descriptor）是内核为了高效管理已被打开的文件所创建的索引，用于指代被打开的文件，对文件所有 I&#x2F;O 操作相关的系统调用都需要通过文件描述符。(在操作这些所谓的文件的时候，我们每操作一次就找一次名字，这会耗费大量的时间和效率。所以Linux中规定每一个文件对应一个索引，这样要操作文件的时候，我们直接找到索引就可以对其进行操作了。)</p>
-<p>同时还规定系统刚刚启动的时候，0是标准输入，1是标准输出，2是标准错误。这意味着如果此时去打开一个新的文件，它的文件描述符会是3，再打开一个文件文件描述符就是4…..</p>
-<p>文件描述符与文件的关系</p>
-<img src="/2023/03/21/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/image-20230321193335545.png" srcset="/img/loading.gif" lazyload class="" title="image-20230321193335545">
+              
+              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="71d01fc79b0a1238876dda7da5cd006e9cef4ef38410b7d6c0b2892f3b821074">05f2105eacbaefe74fd1be82a1de324e7ac13c2ecfca3c03be059b6bf398fa86071e9b5cdd2f1314eb13ebab0ee52655ded51739166288bcb8300bddf097c6fe28c18fcbce2e1f0160ddc815f6bf3f99e46cedee94f299e0fbbc6507d5e2504ffb02c57230226363b3600fdbf8411c721d02fe912123461d7c757e0c770d3c8dc41fb5418c1c959e07503573243ae4ba47fcd4f881f2d1fd8d4101a842da597d21c4db45faf6da494881051dcb9b5b79c28eba3c55d050cd96a49a8a49f959d9c454738e9e393ff4d9bfb46e64f35f505064d10992a5931230c48845d52890808c2106d8fda7b680435592865e515c6d61ff89baafd48a1597f39d67709de3ff93406c7c7a5ec6dd4d2a0c94e72b9d97b2026cf5528175076f0dca5d326e601bfd7563da6d298835dbfe58ac4e60f7b9d5476dce650c9f75d43a4fc4dff49f52883bc433913d8729bfc706e345efbebdb7ccbff4c2ebc2418fa52f4ec6e516bf4f379471b017de34694e6d165fe679f90934a191d8510ad7d65cff1ac267f61ecd6c1093186cf1ebef2f90deb9afd3e1da588c58d90896317367b4cacb66ebd6080864409a40ff37863786a5270082c6b39d2f0624713be5741b626170d6505e92574b55d03542d4d4ed63f9d4cbd7177135fdb487adbb90ebb5cc537d31ec4b9217bb5ce5d8a70197067123cc538044e4ab28f4519e9486576fa5cbe65191febfaee8aedd9cf396b0fc55e25146f33b73b5f3d803e4242b2f9e441c3aa56516de42266034152949dcd7cfd0df5d4099f58c212b24d858bef8da1db049e9420d335caa99ddb37734b706184a9ea3642b53a3017371a846a290ec48c39dbab02d61bc047324532a1df80ced0ee27f0995d47bb7b79cd237b6fd433242e48024e91cc795bd304d9d3c4fd856c710ec6f765966b06b450734a87bddb630fe09ac955bb2c6ed50e08acb5ae433c1981f9c2a4a6318dd4d407a111afe6ae5e99c8a9143fab12afa93d4a7cd6c0a8302c2f9c9a790af1f49f656cdf3a67c1f90b39b074fb2452c7c087fb5f4670cd82186e62f4627a68e4cdda357c8b998e504926642351e097303b65a11202ac46e6f93c43f80bed1eed4a5af6590149b18ed548edeec7356a01c3b1198d5269a2a0133914a048604b7905ba68e7e9f7cd3878d9d7d499187503de54ffe733cd9e0eb3ac0cbbe06be976c280ca7dfb6eddd138cac7ca12b874de474d068eac4780a3f1450a076089de1832ec61b607e7b20329c8148661c3806703d8084e2522bf4d5b1fd59f3c9f7faa2fd24d9c499fd1ea5ec33657a991baee5b1ca4df9604be7d692bbed51670554e0cc2442d87537f90451b54c980fa7220b9edd90227e3dfbdb1b5faa79627d71877a7c1ac1378e691213b1e06943c31e7b37d90f4c5f9072442683f60823c867520f38784b1a36352b16672928bf562d5d66f6d561f370407a9b0321646aaeb1d0b29aab8496527acb81112d7c455449955f2859eac21d6f0f741d07a66616d3f1e9d2c9e2f621436f328f95daed94a1293117cb0cceafcdeb13ec0a508172c78933491abf17204410400981f1f5053cae1d2c4de1afb28b479419599930914dcc7f9702569e38dff9604b8c72ac8693d059ea2f6c8f0acd8325b8a55c1c0517d9a915b84384b31fb2b12aaccb1f70c5cfe365791149e5d198d98ca336ba5bdee645b96963b8b25168d7fb19f90141913a836066aa73a16f4f2bf8780d1f39051c48675f2d2ee450971b2b8c694382d99b023ab82e272ed2ba354f4e045efd9e29e5e8d663efaab5f5aaa132d488847fdb517ecae6cbfbe2e3423f14978ea7e0b225287e5d09907afe8406a13b1aa30ed2c0432c64412ecc4f8656c9c8aa1aedde64b1e0f41c96ffea8b2b9b11c79b4b0596e64d629330935f8046abb9550df0f6424b7e9fc23afa3f6c59fda30fe44c165a511f2d69f375c4fe556d6b8aeba6e062c216640a7e6060cd8a6697aa5e22272cb2679512678a73746dce900ad45ef4701583d3dca157d87b88c28b427e1b37a988e47f7a35adfb414b2a5ec71208ec8654ac80214fd64a8e4842cfd3dd37291d9e09e9b8d0927c7c9975a9ff29d8bee9c1c28cfc7cbdc774bb79e3cd862580608f0b30ca97630491e365dcd76a38f38342b0f17c095a744832ff142b21e35fa608aecc5c59c52160be2dc1956d37f7a358b2a2d4854939d802105dd25ff91c9ddabf3641274b1ed5d12b18702977dbe98660ca7d876c136adf7b48b86fe0bf573325ee77f00b1929e49369c99856ed73042ceaef4af393d690e4c5e6d6bfc9a8727d11fc3683ee4fe01a0c4fc13d3abfcc1a526a027918cb022aa67da4857ea21236f07f8f58ed0083846dfec8ae097e582fd8349bc07c011cdd9457522656e6adc2a8bcc74189d3d39ad0537f4fdb113dfe01c7b7651c21010643f4b4d51da8e401c43283f3ec64754d564d2da38a9cd0ca1b484c48cc9b13776ca000d3999c659052280044c950e7c9ba369bb490e44703206c953fd62b3d3470949f4550a298865cbb1830d321a2169876ccc735263cde621407d7137883ebe38ff371baa24e812141ab1adb982afb11c5a14752fe2f3ff4d5a453c7b81276bbe17950b2b23be346599d9fc95a4e90941cd8175b3646197ea114f675209ced4fb61ed0ffcd3df1fc20be1d5b68b50353540510ec125d495ab72b397665251d562c45222b0e6435e64064d8a4ae6ab3251e11244215111e9bae690db4ed5b73ebf7116c0cc139fd3c4649ea121215eebb983bc74b920f268c9a7bc330af0132ebcb4161f49325495082564cbc82e48849e300cc79e38cf95553f4b24fc98ab9638b58f3365f5b151ec565e8cbff7f5ccc3b65a49cc57e9c4da066b9a64c3f692cae57b6666874ee5ca36b86316c4dbbd01fd13173d37dc32793f25898c87bc1c1eb6c1faa4cdb2435efd35f6b4248bf2eaa2dea9b4a47a70299bd3304ab932f2a59ac7898aa0258a3ff1985adb06f103cec4859c300f8768280413aacc91d5ffc310b2273ac6c4e018ab5d9e71edbc19b2269d2f33f671e717275b49a8568c5202bbe00e3b1df240dc00833c292ca3fad02aa3c66404cef40ed749ad25325e62f9fb4693038b423afc837e8faabfe2109fe8787abf151dbb750b99176ef8ff61bb7a5bedb2aa7d73d3c74c19730aa0ac44285b6cac56fb8aefe904e520109110406852f3ce212b12fee68bd588279de68b203141d997e9525c1e7fda1efbee4159c90d9e2ec76cc19fad0ecb9e7510187d0118ff05fe7159f44736a4eb827eb5e7234d309253cb9318363b243420e5baf0b6fa04b60447900f9776aa507d05494e15d867464feffaac881bf6c75af57a31d56e7639d4dc19e822573f2c91c125c1b03a8e03b2d0c5b309409990a6d71bc4f797bce4e9e47f74eee7d0bae475e6b7bce822c0cbcd0d295aecf1a0d1d3741b998edccf5d535b1dde17832bb175863e02accce7f7f348c156848a58e612b4cb0fa02ef478834e53a197a9a905f4e43c425d4e81aa65053a33824382c60db67321132b0e0240ecc8ee1fcc7dc9e649411587f47da7b1fb00a0140f34b1a8761196a8d73b0b88e9cb3498b803e99470950aef5a1741d6177f27353aee1e4212e81e8c1c8525ff4f10c8d6160e8d84ff32309fc883ec70a354a40d087c693b4a29a76bad05729cdfcee34f73bd7f0fd5d6565bb6dceb5bfb929b5bceea4577deaef71b98d29f74df580fa2ce76a3f4ecfceee6366d9a747430b8da703e72cd781e8c61498d51001bf7f9d174cbdf535eec3805a268ede596ac81640dcb427cafe13dd32ea7abbac3246b22db5c95d62175b6dd45a29b26b19d84f3c42a302bf2162d3c6dbd9b6777211dfe29b9666e85b8c4dcb5ab1ba2747d30863853efb88b12d1a4d37b9d80566dcc6379becf1897c02363e0a783197791c85141aae505bb5f9326f4f9b61f6079e5638d5c72e7d</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+              
 
-<ul>
-<li><strong>进程级别的文件描述符表</strong>：内核为每个进程维护一个文件描述符表，该表记录了文件描述符的相关信息，包括文件描述符、指向打开文件表中记录的指针。</li>
-<li><strong>系统级别的打开文件表</strong>：内核对所有打开文件维护的一个进程共享的打开文件描述表，表中存储了处于打开状态文件的相关信息，包括文件类型、访问权限、文件操作函数(file_operations)等。</li>
-<li><strong>系统级别的 i-node 表</strong>：i-node 结构体记录了文件相关的信息，包括文件长度，文件所在设备，文件物理位置，创建、修改和更新时间等，<code>ls -i</code> 命令可以查看文件 i-node 节点。</li>
-</ul>
-<blockquote>
-<p>文件描述符本质上对应了内核中的一个表单数据。内核维护了每个运行进程的状态，内核会为每一个运行进程保存一个表单，表单的key是文件描述符。这个表单让内核知道，每个文件描述符对应的实际内容是什么。这里比较关键的点是，每个进程都有自己独立的文件描述符空间，所以如果运行了两个不同的程序，对应两个不同的进程，如果它们都打开一个文件，它们或许可以得到相同数字的文件描述符，但是因为内核为每个进程都维护了一个独立的文件描述符空间，这里相同数字的文件描述符可能会对应到不同的文件。——MIT 6.s081</p>
-</blockquote>
-
-                
-              </div>
+              
             
             <hr/>
             <div>
@@ -307,13 +303,20 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
+  <a href="/categories/diary/" class="category-chain-item">diary</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="category-chain-item">操作系统</a>
+  <a href="/categories/diary/2023/" class="category-chain-item">2023</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/diary/2023/3%E6%9C%88%E4%BB%BD/" class="category-chain-item">3月份</a>
+  
+  
+
   
 
   
@@ -329,7 +332,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linux/">#Linux</a>
+        <a href="/tags/diary/">#diary</a>
       
     </div>
   
@@ -341,8 +344,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>文件描述符</div>
-      <div>https://mr-chen233.github.io/2023/03/21/文件描述符/</div>
+      <div>diary-2023-3-22</div>
+      <div>https://mr-chen233.github.io/2023/03/22/diary-2023-3-22/</div>
     </div>
     <div class="license-meta">
       
@@ -354,7 +357,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年3月21日</div>
+          <div>2023年3月22日</div>
         </div>
       
       
@@ -386,18 +389,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/22/diary-2023-3-22/" title="diary-2023-3-22">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">diary-2023-3-22</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/20/diary-2023-03-19/" title="diary-2023-03-19">
-                        <span class="hidden-mobile">diary-2023-03-19</span>
+                      <a href="/2023/03/21/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6/" title="文件描述符">
+                        <span class="hidden-mobile">文件描述符</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -553,6 +550,23 @@
   
 
 
+
+
+  
+  <script defer>
+    if (document.getElementById('hbePass')) {
+      Fluid.utils.waitElementLoaded('hbe-prefix', function() {
+        var hbePrefix = document.querySelector('hbe-prefix');
+        hbePrefix.parentElement.classList.add('markdown-body');
+        Fluid.utils.retry(function() {
+          if (Fluid.boot && Fluid.boot.refresh) {
+            Fluid.boot.refresh();
+            return true;
+          }
+        }, 100, 10);
+      })
+    }
+  </script>
 
 
   
